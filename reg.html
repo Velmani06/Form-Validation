@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <script>
+      function valid(){
+      let name=document.forms["myform"]["uname"].value;
+      let gr=document.forms["myform"]["gender"]; let_grSelect=Array.from(gr).find(radio=>radio.checked)?. value;
+      let fea=document.querySelectorAll('input[type="checkbox"]');
+      let feaSelect=Array.from(fea).some(checkbox=>checkbox.checked);
+      let eyeClr=document.forms["myform"]["eyeColor"].value;
+      if(name==="") alert("Name must be filled");
+      return false;
+      else if(/[\W_]/.test(name)) alert("Name should not contain special characters");
+      return false;
+      if(!grSelect) alert("Gender should be filled");
+      return false; if(eyeClr==="") alert("Eyecolor should be filled");
+       return false;
+      else if(eyeClr!=="Black") alert("Eyecolor should be black");
+      return false;
+      if(!feaSelect) alert("Atleast one should be selected");
+      return false;
+      return true;
+      }
+    </script>
+  </head>
+  <body>
+    <h4>FORM VALIDATION</h4>
+    <form name="myform" method="post" onsubmit="return valid()">
+      <table border="1">
+        <tr style="background-color: aqua">
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Enter your name:</td>
+          <td><input type="text" name="uname" /></td>
+        </tr>
+        <tr>
+          <td>Sex</td>
+          <td>
+            <input type="radio" name="gender" value="male" />Male
+            <input type="radio" name="gender" value="female" />Female
+          </td>
+        </tr>
+        <tr>
+          <td>Eye color</td>
+          <td>
+            <select name="eyeColor">
+              <option value="">Select</option>
+              <option value="Black">Black</option>
+              <option value="Brown">Brown</option>
+              <option value="Green">Green</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Check all that apply</td>
+          <td>
+            <input type="checkbox" name="apply" value="height" />Over 6 feet
+            tall<br />
+            <input type="checkbox" name="apply" value="weight" />Over 200 pounds
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Describe your athletic ability</td>
+        </tr>
+        <tr>
+          <td colspan="2"><textarea rows="5" cols="45"></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center">
+            <input type="submit" value="Enter my information" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
